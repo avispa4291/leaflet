@@ -1,0 +1,29 @@
+---
+title: "Random Locations in the Midwest "
+author: "SL"
+date: "December 8, 2018"
+output: html_document
+
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(leaflet)
+```
+
+
+```{r}
+df <- data.frame(lat = runif(30, min = 39.25, max = 40.35),
+                 lng = runif(30, min = -98.85, max = -97.55))
+
+df %>%
+  leaflet() %>%
+  addTiles()%>%
+  addMarkers(clusterOptions = markerClusterOptions())
+```
+
+
+
+
+
